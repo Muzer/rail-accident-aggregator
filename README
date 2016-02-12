@@ -1,0 +1,6 @@
+# Rail Accident Aggregator
+
+This tool aggregates rail accident reports published by governments around the
+world.
+
+Run with python3 -m raa
