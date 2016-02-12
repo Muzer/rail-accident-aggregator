@@ -1,3 +1,3 @@
-import raa.input_plugins.raib
+import raa.input_plugins.atsb
 
-raa.input_plugins.raib.get_accidents()
+raa.input_plugins.atsb.get_accidents()

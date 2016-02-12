@@ -1,7 +1,9 @@
 import raa.accident as accident
 
 from bs4 import BeautifulSoup
+import dateutil.parser
 import feedparser
+import re
 import urllib.parse
 
 # Workaround things being broken
@@ -60,16 +62,21 @@ def get_accidents():
             if not is_report_or_bulletin(entry):
                 continue
             new_accident = accident.Accident(
-                    'en', get_pdf_link(entry.content[0].value, feed.href), 'gb',
-                    ': '.join(entry.title.split(": ")[1:]), # Strip "Press release"
-                    "RAIB")
+                    'en', get_pdf_link(entry.content[0].value, feed.href),
+                    # Strip "Press release: "
+                    'gb', ': '.join(entry.title.split(": ")[1:]), "RAIB")
             # Location is too hard to parse for now
             new_accident.longdesc = get_longdesc(entry.content[0].value)
             # Company is not provided (usually)
-            # Date is too hard to parse for now
-            new_accident.published = entry.published_parsed
+            # Let's parse the date with regex!
+            regex = \
+                re.compile(
+                ".* ([0-9]?[0-9](st|nd|rd|th)? [^ ]* [0-9][0-9][0-9][0-9]).*")
+            matches = regex.match(entry.summary)
+            if not matches is None:
+                new_accident.date = dateutil.parser.parse(matches.group(1))
+            new_accident.published = dateutil.parser.parse(entry.published)
             new_accident.alturls = {'landing': entry.link}
             accidents.append(new_accident)
-            print(new_accident.__dict__)
         page += 1
         feed = feedparser.parse(RAIB_ATOM_URL + "&page={}".format(page))

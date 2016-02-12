@@ -23,3 +23,9 @@ class Accident:
         self.country = country
         self.desc = desc
         self.org = org
+        self.location = None
+        self.longdesc = None
+        self.company = None
+        self.date = None
+        self.published = None
+        self.alturls = None
