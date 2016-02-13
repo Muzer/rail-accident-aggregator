@@ -4,3 +4,12 @@ This tool aggregates rail accident reports published by governments around the
 world.
 
 Run with python3 -m raa
+
+
+## Countries deliberately not included
+
+* South Africa --- they seem to only have preliminary reports mixed in with
+  media statements on their site. It's possible they're working towards full
+  release of reports but this clearly hasn't happened yet.
+  http://rsr.org.za/media-releases/
+* India --- No public online release of reports. http://www.crs.gov.in
