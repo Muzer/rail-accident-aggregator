@@ -46,6 +46,5 @@ def get_accidents():
         new_accident.date = date
         new_accident.published = published
         new_accident.alturls = alturls
-        print(new_accident.__dict__)
         accidents.append(new_accident)
     return accidents
