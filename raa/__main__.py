@@ -1,3 +1,3 @@
-import raa.input_plugins.taic
+import raa.input_plugins.ntsb
 
-raa.input_plugins.taic.get_accidents()
+raa.input_plugins.ntsb.get_accidents()
