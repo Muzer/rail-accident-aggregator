@@ -80,3 +80,4 @@ def get_accidents():
             accidents.append(new_accident)
         page += 1
         feed = feedparser.parse(RAIB_ATOM_URL + "&page={}".format(page))
+    return accidents

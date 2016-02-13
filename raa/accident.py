@@ -9,7 +9,6 @@ class Accident:
     org: organisation publishing report
     location: (optional) place in/near which accident occurred
     longdesc: (optional) long description of accident
-    company: (optional) company involved
     date: (optional) date on which accident occurred
     published: (optional) date on which the report was published
     alturls: (optional) dictionary of alternative URLs, with the file formats
@@ -25,7 +24,6 @@ class Accident:
         self.org = org
         self.location = None
         self.longdesc = None
-        self.company = None
         self.date = None
         self.published = None
         self.alturls = None

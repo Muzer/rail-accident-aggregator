@@ -66,3 +66,4 @@ def get_accidents():
         new_accident.alturls = { 'landing': landing }
         print(new_accident.__dict__)
         accidents.append(new_accident)
+    return accidents
