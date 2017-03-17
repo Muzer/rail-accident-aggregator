@@ -7,7 +7,10 @@ import re
 import urllib.parse
 
 # Workaround things being broken
-feedparser.PREFERRED_XML_PARSERS.remove('drv_libxml2')
+try:
+    feedparser.PREFERRED_XML_PARSERS.remove('drv_libxml2')
+except:
+    pass
 
 TSB_RSS_URL = "http://www.tsb.gc.ca/eng/fils-feeds/TSB%20Rail.xml"
 

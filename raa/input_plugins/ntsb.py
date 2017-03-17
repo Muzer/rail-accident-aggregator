@@ -6,11 +6,11 @@ import re
 import requests
 import urllib.parse
 
-NTSB_URL = "http://www.ntsb.gov/investigations/AccidentReports" \
+NTSB_URL = "https://www.ntsb.gov/investigations/AccidentReports" \
         "/Pages/railroad.aspx"
 
 def get_site_as_string():
-    r = requests.get(NTSB_URL)
+    r = requests.get(NTSB_URL, verify=False) # TODO remove
     if r.status_code != 200:
         raise ConnectionError(
                 'Got status code {} not 200.'.format(r.status_code))

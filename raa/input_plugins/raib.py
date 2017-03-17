@@ -7,7 +7,10 @@ import re
 import urllib.parse
 
 # Workaround things being broken
-feedparser.PREFERRED_XML_PARSERS.remove('drv_libxml2')
+try:
+    feedparser.PREFERRED_XML_PARSERS.remove('drv_libxml2')
+except:
+    pass
 
 RAIB_ATOM_URL = \
     "https://www.gov.uk/government/announcements.atom" \
